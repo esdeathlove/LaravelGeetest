@@ -16,16 +16,18 @@
             captchaObj.appendTo("#geetest-captcha");
             captchaObj.onSuccess(function () {
                 var result = captchaObj.getValidate();
+                var phone = $('#phone').val();
                 // ajax 伪代码，进行二次验证
-                ajax('/auth/get_sms_code', {
+                $.post('/auth/get_sms_code', {
                     geetest_challenge: result.geetest_challenge,
                     geetest_validate: result.geetest_validate,
                     geetest_seccode: result.geetest_seccode,
-                    type:1,
-                    phone:document.getElementById("phone").value
+                    code_type:'1',
+                    phone:phone,
+                    _token: '{{csrf_token()}}'
                     // 其他服务端需要的数据，比如登录时的用户名和密码
                 }, function (data) {
-                    // 根据服务端二次验证的结果进行跳转等操作
+                    alert(data['msg']);
                 });
             });
             captchaObj.onReady(function() {
