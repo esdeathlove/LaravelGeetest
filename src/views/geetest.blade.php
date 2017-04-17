@@ -22,7 +22,7 @@
                     geetest_challenge: result.geetest_challenge,
                     geetest_validate: result.geetest_validate,
                     geetest_seccode: result.geetest_seccode,
-                    code_type:'1',
+                    code_type:'{{ $code_type }}',
                     phone:phone,
                     _token: '{{csrf_token()}}'
                     // 其他服务端需要的数据，比如登录时的用户名和密码
