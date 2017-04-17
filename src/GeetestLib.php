@@ -422,11 +422,12 @@ class GeetestLib
     /**
      * @param string $product
      */
-    public function render($product = 'float')
+    public function render($product = 'float', $type_code = 1)
     {
         return view('geetest::geetest', [
             'product' => $product,
-            'geetest_url' => $this->geetest_url
+            'geetest_url' => $this->geetest_url,
+            'code_type' => $type_code
         ]);
     }
 
