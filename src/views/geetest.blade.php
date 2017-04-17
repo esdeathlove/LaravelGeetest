@@ -27,7 +27,6 @@
                     _token: '{{csrf_token()}}'
                     // 其他服务端需要的数据，比如登录时的用户名和密码
                 }, function (data) {
-                    alert(data['msg']);
                 });
             });
             captchaObj.onReady(function() {
